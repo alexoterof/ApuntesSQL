@@ -1,0 +1,41 @@
+!= == <>
+select distinct ~ solo muestra una entrada de cada
+
+
+Ejercicio 11 BD2
+SELECT Nombre,Sueldo
+FROM Empleados;
+
+Bastante declarativo, simplemente queremos obtener el nombre y el sueldo de todos los empleados 
+
+SELECT Empleados.Nombre,Empleados.Sueldo
+FROM Empledos AS E
+WHERE (Empleados.genero=’M’ and Empleados.nhijos = 0) or (Empleados.genero=F and Empleados.hijos>0)
+
+Ahora filtramos
+
+SELECT Empleados.Nombre,Empleados.Sueldo
+FROM Empledos AS E
+WHERE (E.genero=’M’ and E.nhijos = 0) or (E.genero=F and E.hijos>0)
+ORDER BY E……. (ASC/DESC)
+
+
+palabras clave:
+SELECT, FROM, WHERE, ORDER BY(ASC,DESC), IN, LIMIT. AS
+
+En select podemos executar una funcion(concat,replace) e poñerlle un nombre bonito con AS >>
+
+
+
+LEFT JOIN - Sácame todos os da esquerda ainda que os da dereita sexan nulos
+RIGTH JOIN // idem
+
+
+En where podemos utilizar portas lóxicas(OR,AND,XOR…).
+ 
+Cá palabra clave LIKE podemos utilizar un tipo de pattern. cousas útiles 
+Acerca do %: matchea de 0 a n coincidencias. => ‘%ger’ == remata con ger	‘%ger%’=>Comeza, conten ou remata con ger.
+Acerca do _:Matchea con 1 e solo 1 único caracter. ‘_T%’=>Matchearia con italia pero non con portugal. ‘_____’ Buscaria unha palabra con tan só 5 letras. Coidao que matchea tamen espazos
+ROUND(valor,decimais) =>ROUND(population/1000000,2) mostaria a poboacion en millons con dous decimais
+LENGTH(valor) => Devolve a lonxitude do parametro
+LEFT(valor,n)=> Devolve os n primeiros caracteres de “valor”
