@@ -6,7 +6,7 @@ As sublinguaxes ou subdivisións de SQL son:
  - **DML** (Data Manipularion language): Borra, modifica e inserta novos datos. Centrada nos propios datos.
  - **DQL** (Data query language): A súa única instrucción é o SELECT. É a sublinguaxe máis extensa, e na que mais nos centraremos nestes apuntes. 
  - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso de que se executen todas. (Non podo, nunha transferencia bancaria, quitar cartos dunha conta e non ser capaz a metelos noutra e que os cartos "desaparezan")
- - Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada usuario.
+ - **DCL** (Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada usuario.
  - **SCL** (Session control language): Utilízase para manexar dinámicamente propiedades dunha sesión de usuario.
   
 ## SELECT
