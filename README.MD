@@ -193,4 +193,21 @@ FROM teacher;
   Esta consulta permitiríanos ter profesores que non estén asignados a ningún departamento e inda asi mostrar os valores correctamente tras facer o select.
 
 ## CONSULTAS DENTRO DE OUTRAS CONSULTAS
-É posible ter un select dentro de outro. Esto permitiríanos por exemplo, obter o país con mais [poboa
+É posible ter un select dentro de outro. Esto permitiríanos por exemplo, obter o país con mais [poboación | área | gdp] dunha lista de países dada. 
+````SQL
+SELECT name
+FROM world
+WHERE population >= ALL(SELECT population
+					    FROM world);
+  ````
+Esto, xunto con todo o que xa vimos, podenos levar a consultas bastante complexas como:
+````SQL
+SELECT title, name
+  FROM movie JOIN casting ON movie.id = casting.movieid
+             JOIN actor ON actor.id = casting.actorid
+  WHERE ord=1
+    AND movieid IN (SELECT movieid 
+                    FROM casting JOIN actor ON casting.actorid = actor.id
+                    WHERE name='Julie Andrews')
+````
+Que mostraría o actor ou actriz principal de todas as películas nas que participou 'Julie Andrews'.
