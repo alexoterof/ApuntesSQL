@@ -1,21 +1,21 @@
-SQL é unha linguaxe de consultas utilizada pra interatuar con bases de datos. Esta linguaxe (formada ou organizada en varias sublinguaxes) permítenos crear,consultar, modificar e eliminar a información almaceada nas bases de datos de forma declarativa. Entre as suas maiores ventaxas podémonos atopar con que é moi fácil e intuitiva de aprender, é unha linguaxe con unha rodaxe detrás (Non é unha linguaxe que estñe "de moda") e a súa evolución non está ligada a ningun fabricante nin organización, senon ás necesidades da súa comunidade. 
+SQL é unha linguaxe de consultas utilizada pra interatuar con bases de datos. Esta linguaxe (formada ou organizada en varias sublinguaxes) permítenos crear,consultar, modificar e eliminar a información almaceada nas bases de datos de forma declarativa. Entre as súas maiores ventaxas podémonos atopar con que é moi fácil e intuitiva de aprender, é unha linguaxe con unha rodaxe detrás (Non é unha linguaxe que esté "de moda") e a súa evolución non está ligada a ningun fabricante nin organización senon ás necesidades da súa comunidade. 
 
 As sublinguaxes ou subdivisións de SQL son:
 
- - **DDL** (Data definition language): Crea modifica e elimina tablas. Céntrase na estructura, non nos propios datos.
+ - **DDL** (Data definition language): Crea modifica e elimina táboas. Céntrase na estructura, non nos propios datos.
  - **DML** (Data Manipularion language): Borra, modifica e inserta novos datos. Centrada nos propios datos.
- - **DQL** (Data query language): A súa única instrucción é o SELECT. É a sublinguaxe máis extensa, e na que mais nos centraremos nestes apuntes. 
- - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso de que se executen todas. (Non podo, nunha transferencia bancaria, quitar cartos dunha conta e non ser capaz a metelos noutra e que os cartos "desaparezan")
+ - **DQL** (Data query language): A súa única instrucción é o SELECT. É a sublinguaxe máis extensa e na que mais nos centraremos nestes apuntes. 
+ - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso de que se executen todas. (Non podo, nunha transferencia bancaria, quitar cartos dunha conta e non ser capaz a metelos noutra e que os cartos "desaparezan". Por exemplo)
  - **DCL** (Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada usuario.
  - **SCL** (Session control language): Utilízase para manexar dinámicamente propiedades dunha sesión de usuario.
   
 ## SELECT
-As consultas mais básicas que podemos facer con SELECT permítennos obter unha ou varias columnas dunha tabla da que xa dispoñemos. Por exemplo (Basándonos nas tablas de SQLZoo)
+As consultas mais básicas que podemos facer con SELECT permítennos obter unha ou varias columnas dunha táboa da que xa dispoñemos. Por exemplo (Basándonos nas tablas de SQLZoo)
 ````SQL
 SELECT *
 FROM world
 ````
-Devolveríanos a lista de países, pero non solo os nomes. Devolvería todas as filas. É dicir, estamos obtendo a tabla world enteira.
+Devolveríanos a lista de países, pero non solo os nomes. Devolvería todas as filas. É dicir, estamos obtendo a táboa world enteira.
 Vemos que tamén estamos utilizando o vocablo clave "FROM". Este permítenos seleccionar de qué táboa queremos extraer os datos. Mais adiante profundizaremos nel pra obter datos de mais de unha táboa simultaneamente.
 Esta sería a consulta "mínima" que podemos realizar en DQL.
 
@@ -60,7 +60,7 @@ SELECT name
 FROM world
 WHERE population > 1000000 and continent = "Europe"
 ````
-Esta faría o mismo que a anterior pero únicamente pra os países europeos.
+Esta faría o mismo que a anterior mais únicamente pra os países europeos.
 
 ## Outros operadores
 
@@ -72,7 +72,7 @@ FROM world
 WHERE name IN ("Germany", "France", "Italy", "Netherlands", "Luxemburg", "Belgium")
 ````
 Permítenos seleccionar ós países fundadores da Comunidade Europea. 
- - **LIKE**: Permitenos comparar expressións regulares:
+ - **LIKE**: Permitenos comparar expresións regulares:
 ````SQL
 SELECT *
 FROM world
@@ -110,23 +110,23 @@ FROM world
 ````
 Nos devuelve los países y cómo de largo es su nombre
 ## AS
-  No apartado anterior vimos que aparece "AS". Simplemente nos permite decir que nome queremos que teña unha columna xerada por un reductor.
+  No apartado anterior vimos que aparece "AS". Isto permítenos decir qué nome queremos que teña unha columna xerada por un reductor.
  
 
 ## SUM
- Permite sumar todos os valores de unha columna
+ Permite sumar todos os valores dunha columna
 ````SQL
 SELECT SUM(population)
 FROM world
 ````
- Darianos a  poboación mundial
+ Darianos a poboación mundial
 
 ## AVG
  ````SQL
 SELECT AVG(population
 FROM world
 ````
-Darianos a poboación media mundial por país.
+Darianos a poboación media por país.
 
 ## COUNT
 ````SQL
@@ -177,8 +177,8 @@ SELECT name
   Devolverianos os actores que traballaron en 'Alien'
 Modificacións do **JOIN**:
 -   **INNER JOIN**: Fíltranse os valores nulos.
--   **LEFT JOIN**: Devolve todo-los resultados da táboa esquerda e os que cumplan a condicion (ON) da táboa dereita. 
--   **RIGHT JOIN**:  Devolve todo-los resultados da táboa dereita e os que cumplan a condicion (ON) da táboa esquerda . 
+-   **LEFT JOIN**:  Devolve tódo-los resultados da táboa esquerda e os que cumplan a condicion (ON) da táboa dereita. 
+-   **RIGHT JOIN**: Devolve tódo-los resultados da táboa dereita e os que cumplan a condicion (ON) da táboa esquerda. 
 
 ## NULL
 Ás veces atoparémonos con valores nulos. Podemos comparalos con "IS NULL" e "IS NOT NULL". 
