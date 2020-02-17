@@ -103,7 +103,7 @@ Redondea un valor ós decimais desexados
 SELECT name, ROUND(gdp/population, 2)
 FROM world
 ````
-## LENTH
+## LENGTH
 ````SQL
 SELECT name, LENGTH(name) AS'Longo'
 FROM world
