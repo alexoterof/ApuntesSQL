@@ -1,0 +1,24 @@
+Create: Podemos crear unha táboa, unha base de datos.
+CREATE DATABASE myDB;
+CREATE SCHEMA myOtherDB;
+No son sinónimos*depende del sistema. Preguntar para el test. en mySQL por ejemplo si. Con schema necesitamos menos permisos.
+
+
+
+CREATE TABLE Alumno(
+	id INTEGER PRIMARY KEY,
+	nome NCHAR(50) NOT NULL,
+	apelidos NCHAR(200),
+	nado DATE;
+);
+podemos definir propiedades como date, time, timestamp, char, varchar, nchar, nchar varying, text…
+
+
+Cando eliminamos unha tabla e temos outra con un campo que é clave axena da eliminada:
+  ->  ON DELETE
+  			-> NA - No action - Queda con información "falsa" o "desactualizada" (Se intentamos ler ese campo?)
+			-> CASCADE - Elimina en cascada. Si por exemplo eliminamos un departamento de profesores, (tendo os profesores o dept por clave axena) elimínanse tamén os profesores. 
+			-> SET NULL - Non é moi boa en rendemento. Queda ese campo a null
+			-> SET DEFAULT - Poñeriamos un valor por defecto na clave principal. Normalmente é un valor tipo 0 ou algo do estilo que nos entendemos que non é real senon que se puxo a default.
+			
+			Math full / match parcial
