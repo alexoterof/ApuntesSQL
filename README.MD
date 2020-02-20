@@ -58,7 +58,8 @@ AND, OR, NOT, NOR, son operadores lóxicos que podemos utilizar dentro do WHERE 
 ````SQL
 SELECT name
 FROM world
-WHERE population > 1000000 and continent = "Europe"
+WHERE population > 1000000 
+      AND continent = "Europe"
 ````
 Esta faría o mismo que a anterior mais únicamente pra os países europeos.
 
@@ -198,13 +199,13 @@ FROM teacher;
 SELECT name
 FROM world
 WHERE population >= ALL(SELECT population
-					    FROM world);
+			FROM world);
   ````
 Esto, xunto con todo o que xa vimos, podenos levar a consultas bastante complexas como:
 ````SQL
 SELECT title, name
   FROM movie JOIN casting ON movie.id = casting.movieid
-             JOIN actor ON actor.id = casting.actorid
+             JOIN actor   ON actor.id = casting.actorid
   WHERE ord=1
     AND movieid IN (SELECT movieid 
                     FROM casting JOIN actor ON casting.actorid = actor.id
