@@ -14,7 +14,7 @@ CREATE TABLE Alumno(
 podemos definir propiedades como date, time, timestamp, char, varchar, nchar, nchar varying, text…
 
 
-Cando eliminamos unha tabla e temos outra con un campo que é clave axena da eliminada:
+Cando eliminamos unha fila dunha tabla e temos outra con un campo que é clave axena da eliminada:
   ->  ON DELETE
   			-> NA - No action - Queda con información "falsa" o "desactualizada" (Se intentamos ler ese campo?)
 			-> CASCADE - Elimina en cascada. Si por exemplo eliminamos un departamento de profesores, (tendo os profesores o dept por clave axena) elimínanse tamén os profesores. 
@@ -22,3 +22,45 @@ Cando eliminamos unha tabla e temos outra con un campo que é clave axena da eli
 			-> SET DEFAULT - Poñeriamos un valor por defecto na clave principal. Normalmente é un valor tipo 0 ou algo do estilo que nos entendemos que non é real senon que se puxo a default.
 			
 			Math full / match parcial
+			
+Create table > primary key > foreign key > check 
+https://www.postgresql.org/docs/9.4/ddl-constraints.html
+
+CONSTRAINTS
+(   [CONSTRAINT <nome-de-restricción>  )          //Podemos nomear as restriccións para despois velas a través do diccionario de datos
+(   		UNIQUE (<atributos>),      )      // 
+
+[CONSTRAINT <nome-da-restriccion>]
+	CHECK predicado(Atributos)
+		[[NOT] DEFERRABLE]
+		[INITIALLY INMEDIATE|DEFERABLE]
+Sólo se permite a actualización dos datos cando o predicado devolve true. O valor predeterminado é NOT DEFERRABLE, é dicir, non aplazado.
+No caso de que esteamos a facer unha transacción moi grande, ante a posibilidade de consumir recursos pra despois sufrir un roll-back, podemos
+aplazar estas comprobacións ata despois de asegurarnos que realmente podemos chegar ata o final da transacción, e ahí consumir os recursos máquina.
+INITIALLY INMEDIATE con DEFERRABLE non ten moito sentido, normalmente seria NOT DEFERRABLE INITIALLY INMEDIATE ou DEFERRABLE INITIALLY DEFERRABLE
+
+agora cambiamos de temiña
+DROP SCHEMA
+[IF EXISTS] <nome-da-bd>; //o de if exists mola bastante porque evita que borres o que non queres borrar. vocablo full utilidad.
+
+DROP TABLE
+[IF EXISTS] <nome-da-taboa>
+CASCADE | RESTRICT;          //CASCADE: elimina as taboas cás que está relacionada. // RESTRICT: Non podes borrar a táboa se ten algunha relación con outra táboa filla
+
+
+Outra cousa
+
+ALTER TABLE
+ COLUMNA   | RESTRICCION
+ADD | DROP    ADD | DROP
+
+(eu tampouco entendo o esquema)
+
+ALTER TABLE <nome-da-taboa>                                       
+|  ADD [COLUMN] <attributo><dominio>
+|  DROP COLUMN <attributo> [CASCADE | RESTRICT]
+|  ADD <restriccion>
+|  DROP <restriccion>
+
+En teoria ata aqui vai ddl
+Darse de alta en elephantSQL. Facer un par de bases. postgress.
