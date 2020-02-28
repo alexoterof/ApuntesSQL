@@ -64,3 +64,6 @@ ALTER TABLE <nome-da-taboa>
 
 En teoria ata aqui vai ddl
 Darse de alta en elephantSQL. Facer un par de bases. postgress.
+
+
+perdin todo dml por non facer commit :)
