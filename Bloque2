@@ -67,3 +67,9 @@ Darse de alta en elephantSQL. Facer un par de bases. postgress.
 
 
 perdin todo dml por non facer commit :)
+
+
+
+ON DELETE | ON UPDATE por defecto temos no action
+
+
