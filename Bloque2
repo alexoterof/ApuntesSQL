@@ -17,7 +17,7 @@ podemos definir propiedades como date, time, timestamp, char, varchar, nchar, nc
 Cando eliminamos unha fila dunha tabla e temos outra con un campo que é clave axena da eliminada:
   ->  ON DELETE
   			-> NA - No action - Queda con información "falsa" o "desactualizada" (Se intentamos ler ese campo?)
-			-> CASCADE - Elimina en cascada. Si por exemplo eliminamos un departamento de profesores, (tendo os profesores o dept por clave axena) elimínanse tamén os profesores. 
+			-> CASCADE - Elimina en cascada. Si por exemplo eliminamos un departamento de profesores, (tendo os profesores o dept por clave axena) elimínanse tamén os profesores. (casos reais 90% usases este)
 			-> SET NULL - Non é moi boa en rendemento. Queda ese campo a null
 			-> SET DEFAULT - Poñeriamos un valor por defecto na clave principal. Normalmente é un valor tipo 0 ou algo do estilo que nos entendemos que non é real senon que se puxo a default.
 			
@@ -72,4 +72,19 @@ perdin todo dml por non facer commit :)
 
 ON DELETE | ON UPDATE por defecto temos no action
 
+
+MODIFICIACIONES(5/3):
+	-> CASCADE(90% casos reais)
+	-> RESTRICTED (non deixaria)
+	-> NULL
+	-> DEFAULT   -- utilizar un caso artificial pra suplir un null. Nton se utiliza porque é falsificar información. (Prob legais?). 
+	
+	
+// unicidade  -- unite
+propablemente non entren asertos, porque salen selects un pouco complexos que non é o que se quere evaluar.
+
+para examen:
+-datas inicio e fin : check data inicio menor a data fin
+-si hay cousas nas que hay que comprobar valores en varia tablas(asertos) non facer o select 
+	constraint de unicidade vai entre parentesis
 
