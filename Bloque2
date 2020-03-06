@@ -75,7 +75,7 @@ ON DELETE | ON UPDATE por defecto temos no action
 
 MODIFICIACIONES(5/3):
 	-> CASCADE(90% casos reais)
-	-> RESTRICTED (non deixaria)
+	-> RESTRICT (non deixaria)
 	-> NULL
 	-> DEFAULT   -- utilizar un caso artificial pra suplir un null. Nton se utiliza porque é falsificar información. (Prob legais?). 
 	
