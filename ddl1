@@ -1,0 +1,83 @@
+Table "departamento" {
+  "nome_departamento" "character varying(50)" [not null]
+  "teléfono" integer [not null]
+  "director" "character varying(50)"
+}
+
+Table "financia" {
+  "nome_programa" "character varying(50)" [not null]
+  "codigo_proxecto" "character varying(30)" [not null]
+  "numero_proxecto" integer
+  "cantidade_financiada" integer
+}
+
+Table "grupo" {
+  "nome_grupo" "character varying(50)" [not null]
+  "nome_departamento" "character varying(50)" [not null]
+  "area" "character varying(50)" [not null]
+  "lider" "character varying(50)" [not null]
+}
+
+Table "participa" {
+  "dni" "character varying(25)" [not null]
+  "codigo_proxecto" "character varying(50)" [not null]
+  "data_inicio" date [not null]
+  "data_cese" date [not null]
+  "dedicacion" integer [not null]
+}
+
+Table "profesor" {
+  "dni" "character varying(25)" [not null]
+  "nome_profesor" "character varying(70)" [not null]
+  "titulación" "character varying(100)" [not null]
+  "experiencia" integer [not null]
+  "nome_grupo" "character varying(50)" [not null]
+}
+
+Table "programa" {
+  "nome_programa" "character varying(50)" [not null]
+}
+
+Table "proxecto" {
+  "codigo_proxecto" "character varying(50)" [not null]
+  "nome_proxecto" "character varying(50)" [not null]
+  "orzamento" numeric [not null]
+  "data_inicio" date [not null]
+  "data_fin" date [not null]
+  "nome_grupo" "character varying(50)" [not null]
+}
+
+Table "sede" {
+  "nome_sede" "character varying(50)" [not null]
+  "campus" "character varying(50)"
+}
+
+Table "ubicacion" {
+  "nome_sede" "character varying(50)" [not null]
+  "nome_departamento" "character varying(50)" [not null]
+}
+
+Ref:"profesor"."dni" < "departamento"."director"
+
+Ref:"proxecto"."codigo_proxecto" < "financia"."codigo_proxecto" [update: cascade, delete: cascade]
+
+Ref:"programa"."nome_programa" < "financia"."nome_programa" [update: cascade, delete: cascade]
+
+Ref:"profesor"."dni" < "grupo"."lider"
+
+Ref:"departamento"."nome_departamento" < "grupo"."nome_departamento" [update: cascade, delete: cascade]
+
+Ref:"proxecto"."codigo_proxecto" < "participa"."codigo_proxecto" [update: cascade, delete: restrict]
+
+Ref:"profesor"."dni" < "participa"."dni" [update: cascade, delete: restrict]
+
+Ref:"grupo"."nome_grupo" < "profesor"."nome_grupo" [update: cascade]
+
+Ref:"grupo"."nome_grupo" < "proxecto"."nome_grupo" [update: cascade, delete: cascade]
+
+Ref:"departamento"."nome_departamento" < "ubicacion"."nome_departamento" [delete: cascade]
+
+Ref:"sede"."nome_sede" < "ubicacion"."nome_sede" [delete: cascade]
+
+
+
