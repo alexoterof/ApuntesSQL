@@ -2,6 +2,7 @@ recordar que en las especificaciones, donde hay asterisco significa que puede se
 
 --
 ````SQL
+
 Imos a crear un dominio.
 CREATE DOMAIN Tipo_DNI    CHAR(9);
 CREATE DOMAIN Tipo_Codigo CHAR(5);
@@ -24,17 +25,68 @@ CREATE TABLE Ubicacion(
   PRIMARY KEY(Nome_Sede, Nome_Departamento),
   CONSTRAINT FK_Sede_Ubicacion
     FOREIGN KEY (Nome_Sede)
-    REFERENCES Sede(Nome_Sede)                 --Sede(Nome_Sede) é optativo, se poñemos solo Sede vamos directamente á clave primaria
+    REFERENCES Sede(Nome_Sede) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE,                 --Sede(Nome_Sede) é optativo, se poñemos solo Sede vamos directamente á clave primariaç
+  CONSTRAINT FK_Departamento_Ubicacion
+    FOREING KEY (Nome_Departamento)
+    REFERENCES Departamento)
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 );
+
+CREATE TABLE GRUPO(
+  Nome_Grupo        Nome_Valido,
+  Nome_Departamento Nome_Valido,
+  Area              Nome_Valido NOT NULL,
+  Lider             Tipo_DNI,
+  PRIMARY KEY (Nome_Grupo, Nome_Departamento)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+  --FK (LIDER)
+);
+
+CREATE TABLE Profesor(
+  DNI Tipo_DNI PRIMARY KEY,
+  Nome_Profesor Nome_Valido NOT NULL,
+  Titulacion VARCHAR(29) NOT NULL,
+  Experiencia INTEGER,
+  Grupo Nome_Valido,
+  PRIMARY KEY(DNI),
+  N_Grupo Nome_Valido,
+  N_Departamento Nome_Valido,
+  CONSTRAINT FK_Grupo_Profesor
+    FOREIGN KEY (N_Grupo, N_Departamento)
+      REFERENCES (Nome_Grupo, Nome_Departamento)
+      ON DELETE SET NULL
+      ON UPDATE CASCADE
+);
+
+ALTER TABLE Departamento
+  ADD CONSTRAINT FK_Profesor_Departamento
+    FOREIGN KEY (Director=
+    REFERENCES Profesor (DNI)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE;
+
+
+
 
 ````
 
+-- CASO DE QUE POR EXEMPLO FACEMOS MAL A CLAVE FORÁNEA E QUEREMOS CAMBIALA (ON UPDATE)
 
-
-
-
-
-
+    
+  ALTER TABLE Profesor 
+     DROP CONSTRAINT FK_Grupo_Profesor;
+     
+  ALTER TABLE Profesor 
+    ADD CONSTRAINT FK_Grupo_Profesor
+      FOREIGN KEY (N_Grupo, N_Departamento)
+      REFERENCES Grupo(Nome_Grupo, Nome_Departamento)
+      ON DELETE SET NULL 
+      ON UPDATE SET NULL;
+    
 
 
 
