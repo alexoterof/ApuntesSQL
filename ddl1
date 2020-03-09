@@ -1,92 +1,33 @@
-Table "departamento" {
-  "nome_departamento" "character varying(50)" [not null]
-  "teléfono" integer [not null]
-  "director" "character varying(50)"
-}
-
-Table "financia" {
-  "nome_programa" "character varying(50)" [not null]
-  "codigo_proxecto" "character varying(30)" [not null]
-  "numero_proxecto" integer
-  "cantidade_financiada" integer
-}
-
-Table "grupo" {
-  "nome_grupo" "character varying(50)" [not null]
-  "nome_departamento" "character varying(50)" [not null]
-  "area" "character varying(50)" [not null]
-  "lider" "character varying(50)" [not null]
-}
-
-Table "participa" {
-  "dni" "character varying(25)" [not null]
-  "codigo_proxecto" "character varying(50)" [not null]
-  "data_inicio" date [not null]
-  "data_cese" date [not null]
-  "dedicacion" integer [not null]
-}
-
-Table "profesor" {
-  "dni" "character varying(25)" [not null]
-  "nome_profesor" "character varying(70)" [not null]
-  "titulación" "character varying(100)" [not null]
-  "experiencia" integer [not null]
-  "nome_grupo" "character varying(50)" [not null]
-}
-
-Table "programa" {
-  "nome_programa" "character varying(50)" [not null]
-}
-
-Table "proxecto" {
-  "codigo_proxecto" "character varying(50)" [not null]
-  "nome_proxecto" "character varying(50)" [not null]
-  "orzamento" numeric [not null]
-  "data_inicio" date [not null]
-  "data_fin" date [not null]
-  "nome_grupo" "character varying(50)" [not null]
-}
-
-Table "sede" {
-  "nome_sede" "character varying(50)" [not null]
-  "campus" "character varying(50)"
-}
-
-Table "ubicacion" {
-  "nome_sede" "character varying(50)" [not null]
-  "nome_departamento" "character varying(50)" [not null]
-}
-
-Ref:"profesor"."dni" < "departamento"."director"
-
-Ref:"proxecto"."codigo_proxecto" < "financia"."codigo_proxecto" [update: cascade, delete: cascade]
-
-Ref:"programa"."nome_programa" < "financia"."nome_programa" [update: cascade, delete: cascade]
-
-Ref:"profesor"."dni" < "grupo"."lider"
-
-Ref:"departamento"."nome_departamento" < "grupo"."nome_departamento" [update: cascade, delete: cascade]
-
-Ref:"proxecto"."codigo_proxecto" < "participa"."codigo_proxecto" [update: cascade, delete: restrict]
-
-Ref:"profesor"."dni" < "participa"."dni" [update: cascade, delete: restrict]
-
-Ref:"grupo"."nome_grupo" < "profesor"."nome_grupo" [update: cascade]
-
-Ref:"grupo"."nome_grupo" < "proxecto"."nome_grupo" [update: cascade, delete: cascade]
-
-Ref:"departamento"."nome_departamento" < "ubicacion"."nome_departamento" [delete: cascade]
-
-Ref:"sede"."nome_sede" < "ubicacion"."nome_sede" [delete: cascade]
-
-
+recordar que en las especificaciones, donde hay asterisco significa que puede ser nulo
 
 --
+````SQL
+Imos a crear un dominio.
+CREATE DOMAIN Tipo_DNI    CHAR(9);
+CREATE DOMAIN Tipo_Codigo CHAR(5);
+CREATE DOMAIN Nome_Valido VARCHAR(30);
 
+CREATE TABLE Sede(
+  Nome_Sede Nome_Valido PRIMARY KEY,
+  Campus    Nome_Valido NOT NULL
+);
+CREATE TABLE Departamento(
+  Nome_Departamento Nome_Valido PRIMARY KEY,
+  Telefono          CHAR(9) NOT NULL,               --No es un inte pq en verdad non vas querer facer unha suma de telefonos ou algo do estilo
+  Director          Tipo_DNI
+  --FK(Director)
+);
 
+CREATE TABLE Ubicacion(
+  Nome_Sede         Nome_Valido,
+  Nome_Departamento Nome_Valido,
+  PRIMARY KEY(Nome_Sede, Nome_Departamento),
+  CONSTRAINT FK_Sede_Ubicacion
+    FOREIGN KEY (Nome_Sede)
+    REFERENCES Sede(Nome_Sede)                 --Sede(Nome_Sede) é optativo, se poñemos solo Sede vamos directamente á clave primaria
+);
 
-
-
+````
 
 
 
