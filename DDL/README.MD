@@ -1,11 +1,11 @@
 Primeiro de todo: Qué é DDL? 
 DDL son as iniciais de "Data Definition Language". Esto é bastante autoexplicativo.  É unha sublinguaxe SQL que nos permite definir a  estructura dos datos cós que logo imos traballar.  Neste texto cubriremos os seus comandos principais CREATE, ALTER e DROP.  O primeiro sirvenos pra crear (Schemas ou taboas), da seguinte maneira: 
-''''SQL''''
+~~~~sql
 CREATE SCHEMA myDB;
-''''SQL''''
+~~~~
 
 No caso de querer crear unha táboa fariamos:
-''''SQL''''
+~~~~sql
 CREATE TABLE nomeTaboa(
 	nomeCampo tipoCampo
 	[,nomeCampoN tipoCampoN]
@@ -17,11 +17,11 @@ CREATE TABLE nomeTaboa(
 	[,CHECK (PREDICADE)] 
 --Queda pendiente el on update on delete
 );
-''''sql''''
+~~~~
 Este sería un exemplo da estructura dun "Create table";
 
 Como exemplo "real" teríamos este:
-''''sql''''
+~~~~sql
 CREATE TABLE Visita(
   Codigo_Tripulacion CodigoValido,
   Codigo_Planeta CodigoValido,
@@ -39,24 +39,24 @@ CREATE TABLE Visita(
     ON UPDATE CASCADE
     ON DELETE CASCADE
 );
-''''sql''''
+~~~~
 Aqui podemos ver como temos unha táboa "Visita" cunha chave principal composta e que ademais ten duas 
 chaves foráneas, neste caso simples. 
 Vemos que ambas chaves utilizan o valor "Cascade" tanto pra ON UPDATE como pra ON DELETE. Este será o valor que terá no 90% dos casos reais. 
 Tamen, por poñer un exemplo de táboa onde se utilize o CHECK, podemos facer algo como:
-''''sql''''
+~~~~sql
 CREATE TABLE Produto(
 	idProducto bigInt PRIMARY KEY,
 	precio numeric NOT NULL,
 	CHECK precio > 0
 );
-''''SQL''''
+~~~~
 Como podemos ver, tamen podemos utilizar certos constraints (primary key, foreign key, not null, unique...) xusto despois de definir o tipo de datos. Mais deberiamos ter en conta que esto solo se pode facer no caso de que sexa chaves simples e non compostas. Polo tanto, podemos afirmar que a "boa praxe" sería engadindo constraints despois de definir os datos, por funcioa en todos os casos.
 
 ALTER 
 Existe o caso no que, pra certos esquemas, non podemos referenciar unha chave axena a outra táboa xa que esa outra táboa inda non existe. Nese caso, necesitaremos engadir o constraint mais tarde, utilizando pra iso ALTER TABLE.
 Un exemplo seria:
-''''sql''''
+~~~~sql
 ALTER TABLE Visita(
 	ADD CONSTRAINT FK_Visita_Planeta
 	FOREIGN KEY(Codigo_Planeta)
@@ -64,15 +64,15 @@ ALTER TABLE Visita(
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 );
-''''SQL''''
+~~~~
 Este exemplo permitiríanos engadir a mesma FK que previamente engadimos na consulta CREATE TABLE, pero a posteriori. 
 
 Tamén podemos utilizar o comando ALTER pra alterar, por exemplo, columnas.
-''''SQL''''
+~~~~sql
 ALTER TABLE Visita
 	ALTER COLUMN Data_Visita 
 	TYPE varchar(30);
-''''sql''''
+~~~~
 As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este estio. Entre outras caracteristicas interesantes podémonos atopar DROP COLUMN, ADD COLUMN ou DROP CONSTRAINT. Para ver todo o que se pode facer con este comando o recomendábel é consultar a documentación[https://www.postgresql.org/docs/9.1/sql-altertable.html].
 
 
