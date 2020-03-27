@@ -73,6 +73,6 @@ ALTER TABLE Visita
 	ALTER COLUMN Data_Visita 
 	TYPE varchar(30);
 ~~~~
-As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este estio. Entre outras caracteristicas interesantes podémonos atopar DROP COLUMN, ADD COLUMN ou DROP CONSTRAINT. Para ver todo o que se pode facer con este comando o recomendábel é consultar a documentación[https://www.postgresql.org/docs/9.1/sql-altertable.html].
+As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este estio. Entre outras caracteristicas interesantes podémonos atopar DROP COLUMN, ADD COLUMN ou DROP CONSTRAINT. Para ver todo o que se pode facer con este comando o recomendábel é consultar a [documentación][https://www.postgresql.org/docs/9.1/sql-altertable.html].
 
 
