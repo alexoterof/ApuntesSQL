@@ -2,10 +2,10 @@ SQL é unha linguaxe de consultas utilizada pra interatuar con bases de datos. E
 
 As sublinguaxes ou subdivisións de SQL son:
 
- - [**DDL**](DDL/README.MD) (Data definition language): Crea modifica e elimina táboas. Céntrase na estr>
- - [**DML**](DML/README.MD) (Data Manipularion language): Borra, modifica e inserta novos datos. Centrad>
- - [**DQL**](DQL/README.MD) (Data query language): A súa única instrucción é o SELECT. É a sublinguaxe m>
- - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso d>
- - **DCL** (Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada >
+ - [**DDL**](DDL/README.MD) (Data definition language): Crea modifica e elimina táboas. Céntrase na estructura, non nos propios datos.
+ - [**DML**](DML/README.MD) (Data Manipularion language): Borra, modifica e inserta novos datos. Centrada nos propios datos.
+ - [**DQL**](DQL/README.MD) (Data query language): A súa única instrucción é o SELECT. É a sublinguaxe máis extensa e na que mais nos centraremos nestes apuntes.
+ - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso de que se executen todas. (Non se pode, nunha transferencia bancara, quitar cartos dunha conta non sendo capaz de insertalos noutra, "desaparezendo" estes cartos. Por exemplo).
+ - **DCL** (Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada usuario.
  - **SCL** (Session control language): Utilízase para manexar dinámicamente propiedades dunha sesión de usuario.
   
