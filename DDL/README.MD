@@ -60,9 +60,9 @@ Un exemplo seria:
 ALTER TABLE Visita(
 	ADD CONSTRAINT FK_Visita_Planeta
 	FOREIGN KEY(Codigo_Planeta)
-	REFERENCES "NavesEspaciais".Planeta(Codigo_Planeta)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
+		REFERENCES "NavesEspaciais".Planeta(Codigo_Planeta)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
 );
 ~~~~
 Este exemplo permitiríanos engadir a mesma FK que previamente engadimos na consulta CREATE TABLE, pero a posteriori. 
@@ -75,4 +75,17 @@ ALTER TABLE Visita
 ~~~~
 As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este estio. Entre outras caracteristicas interesantes podémonos atopar DROP COLUMN, ADD COLUMN ou DROP CONSTRAINT. Para ver todo o que se pode facer con este comando o recomendábel é consultar a [documentación](https://www.postgresql.org/docs/9.1/sql-altertable.html).
 
+Por último, vamos a pararnos a revisar a instrucción DROP:
+Esta instrucción pode ser aplicada tanto pra eliminar schemas e tablas, como pra eliminar columnas dunha tábia, dentro dun alter table. A continuacion vemos alguns exemplos:
 
+~~~~sql
+DROP SCHEMA [IF EXISTS] <nome-da-bd>;
+~~~~ 
+*O "IF EXISTS" é bastante recomendábel, evita que borres o que non queres borrar
+
+~~~~sql
+DROP TABLE 
+[IF EXISTS] <nome-da-taboa>
+CASCADE | RESTRICT;
+--Cascade: Elimina as táboas cás que está relacionada
+--Restrict: Non podes borrar a táboa se ten algunha relación con outra táboa 
