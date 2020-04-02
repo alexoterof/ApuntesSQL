@@ -11,5 +11,5 @@ As sublinguaxes ou subdivisións de SQL son:
  
  
 
- #Instalacion MariaDB
+ # Instalacion MariaDB
  Instruccions [neste](https://gist.github.com/alexoterof/6c89485485752bc05673702f519488e6) Gist.
