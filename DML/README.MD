@@ -1,6 +1,6 @@
 <a name="comezo"></a>
-A sublinguaxe DML(Data Manipulation Language) permítenos levar a cabo operacions de consultas e modificación dos datos contidos no SXBD. 
-As tres instruccions de esta sublinguaxe que veremos son *INSERT*, *DELETE* e *UPDATE*
+A sublinguaxe DML(Data Manipulation Language) permítenos levar a cabo operacions de consultas e modificacións dos datos contidos no SXBD. 
+As tres instrucions de esta sublinguaxe que veremos son *INSERT*, *DELETE* e *UPDATE*
 
 # INSERT
 A estructura básica de insert é a seguinte: 
@@ -29,7 +29,7 @@ UPDATE usuarios
 ~~~~
 
 # DELETE 
-Utilizámolo pra eliminar rexistros de unha táboa. 
+Utilizámolo pra eliminar rexistros dunha táboa. 
 Si facemos algo do estilo
 ~~~~sql
 DELETE FROM usuarios;
