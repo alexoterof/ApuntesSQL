@@ -45,7 +45,7 @@ CREATE TABLE Visita(
 Aqui podemos ver como temos unha táboa "Visita" cunha chave principal composta e que ademais ten duas 
 chaves foráneas, neste caso simples. 
 Vemos que ambas chaves utilizan o valor "Cascade" tanto pra ON UPDATE como pra ON DELETE (Ver mais sobre o contraint [FOREIGN KEY](https://www.postgresql.org/docs/9.5/ddl-constraints.html#DDL-CONSTRAINTS-FK)). Este será o valor que terá no 90% dos casos reais. 
-![Resumo de ON DELETE e ON UPDATE] (./img/foreignKeysCheatsheet.png)
+![Resumo de ON DELETE e ON UPDATE](./img/foreignKeysCheatsheet.png)
 
 ^ Créditos da imaxe a http://www.yolinux.com ^ 
 
