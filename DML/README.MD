@@ -17,7 +17,7 @@ INSERT INTO <nome-da-taboa> [<columna1>,<columna2>...]
 ~~~~
 
 Esta consulta permite varios modificadores como [AS alias], ON CONFLICT...
-Podemos ver unha lista completa das posibilidades de *INSERT* [aquí](https://www.postgresql.org/docs/9.5/sql-insert.html)].
+Podemos ver unha lista completa das posibilidades de *INSERT* [aquí](https://www.postgresql.org/docs/9.5/sql-insert.html).
 
 # UPDATE
 Sirve pra modificar as tuplas xa existentes. Podemos modificar todos os valores dunha columna ou utilizar un predicado con *WHERE* pra controlar qué valores se modifican.
