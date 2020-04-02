@@ -8,4 +8,8 @@ As sublinguaxes ou subdivisións de SQL son:
  - **TCL** (Transactino control language): Permite executar varias operacións, e executalas só no caso de que se executen todas. (Non se pode, nunha transferencia bancara, quitar cartos dunha conta non sendo capaz de insertalos noutra, "desaparezendo" estes cartos. Por exemplo).
  - **DCL** (Data control language): Xestiona a qué partes da base de datos pode e non pode acceder cada usuario.
  - **SCL** (Session control language): Utilízase para manexar dinámicamente propiedades dunha sesión de usuario.
-  
+ 
+ 
+
+ #Instalacion MariaDB
+ Instruccions [neste](https://gist.github.com/alexoterof/6c89485485752bc05673702f519488e6) Gist.
