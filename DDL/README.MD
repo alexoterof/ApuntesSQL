@@ -1,3 +1,4 @@
+<a name="comezo"></a>
 Primeiro de todo: Qué é DDL? 
 DDL son as iniciais de "Data Definition Language". Esto é bastante autoexplicativo.  É unha sublinguaxe SQL que nos permite definir a  estructura dos datos cós que logo imos traballar.  Neste texto cubriremos os seus comandos principais CREATE, ALTER e DROP.  
 
@@ -58,6 +59,7 @@ CREATE TABLE Produto(
 	CHECK precio > 0
 );
 ~~~~
+[Voltar ó comezo](#comezo)
 
 #### CONSTRAINTS
 Como podemos ver, tamen podemos utilizar certos [constraints](https://www.postgresql.org/docs/9.2/ddl-constraints.html) (primary key, foreign key, not null, unique...) xusto despois de definir o tipo de datos. Mais deberiamos ter en conta que esto solo se pode facer no caso de que sexa chaves simples e non compostas. Polo tanto, podemos afirmar que a "boa praxe" sería engadindo constraints despois de definir os datos, por funcioa en todos os casos.
@@ -77,7 +79,9 @@ DROP TABLE [IF EXISTS] <nome-da-taboa> [ CASCADE | RESTRICT ];
 --Cascade: Elimina as táboas cás que está relacionada
 --Restrict: Non podes borrar a táboa se ten algunha relación con outra táboa 
 ~~~~
-Esto permitiríanos eliminar unha táboa, seleccionando en qué modo a eliminamos
+Esto permitiríanos eliminar unha táboa, seleccionando en qué modo a eliminamos.
+
+[Voltar ó comezo](#comezo)
 
 ## ALTER 
 Esta instruccion permitenos operar a nivel columna (ADD ou DROP) e a nivel constraint (ADD ou DROP)
@@ -116,4 +120,6 @@ As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este es
 Fontes:
 	- [yolinux.com](http://www.yolinux.com/TUTORIALS/PostgreSQL-Transactions-ForeignKeys.html)
 	- [Documentacion oficial de PostgreSQL](https://www.postgresql.org/docs/9.5/ddl.html)
+	
+[Voltar ó comezo](#comezo)
 
