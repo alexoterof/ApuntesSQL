@@ -1,5 +1,5 @@
 Primeiro de todo: Qué é DDL? 
-DDL son as iniciais de "Data Definition Language". Esto é bastante autoexplicativo.  É unha sublinguaxe SQL que nos permite definir a  estructura dos datos cós que logo imos traballar.  Neste texto cubriremos os seus comandos principais CREATE, ALTER e DROP.  O primeiro sirvenos pra crear ((Schemas)[https://www.postgresql.org/docs/9.2/ddl-schehttps://www.postgresql.org/docs/9.2/ddl-schemas.html#DDL-SCHEMAS-CREATEmas.html#DDL-SCHEMAS-CREATE], (taboas)[https://www.postgresql.org/docs/9.2/sql-createtable.html]...), da seguinte maneira: 
+DDL son as iniciais de "Data Definition Language". Esto é bastante autoexplicativo.  É unha sublinguaxe SQL que nos permite definir a  estructura dos datos cós que logo imos traballar.  Neste texto cubriremos os seus comandos principais CREATE, ALTER e DROP.  O primeiro sirvenos pra crear ([Schemas](https://www.postgresql.org/docs/9.2/ddl-schehttps://www.postgresql.org/docs/9.2/ddl-schemas.html#DDL-SCHEMAS-CREATEmas.html#DDL-SCHEMAS-CREATE), [taboas](https://www.postgresql.org/docs/9.2/sql-createtable.html)...), da seguinte maneira: 
 ~~~~sql
 CREATE SCHEMA myDB;
 ~~~~
@@ -41,7 +41,7 @@ CREATE TABLE Visita(
 ~~~~
 Aqui podemos ver como temos unha táboa "Visita" cunha chave principal composta e que ademais ten duas 
 chaves foráneas, neste caso simples. 
-Vemos que ambas chaves utilizan o valor "Cascade" tanto pra ON UPDATE como pra ON DELETE ((Ver mais sobre o contraint FOREIGN KEY)[https://www.postgresql.org/docs/9.5/ddl-constraints.html#DDL-CONSTRAINTS-FK]). Este será o valor que terá no 90% dos casos reais. 
+Vemos que ambas chaves utilizan o valor "Cascade" tanto pra ON UPDATE como pra ON DELETE ([Ver mais sobre o contraint FOREIGN KEY](https://www.postgresql.org/docs/9.5/ddl-constraints.html#DDL-CONSTRAINTS-FK)). Este será o valor que terá no 90% dos casos reais. 
 ![Resumo de ON DELETE e ON UPDATE] (/img/foreignKeysCheatsheet.png)
 ^ Créditos da imaxe a http://www.yolinux.com ^ 
 
@@ -108,6 +108,6 @@ As posibilidades de ALTER son demasiadas como pra cubrilas nun resumo de este es
 
 
 Fontes:
-	- (yolinux.com)[http://www.yolinux.com/TUTORIALS/PostgreSQL-Transactions-ForeignKeys.html]
-	- (Documentacion oficial de PostgreSQL)[https://www.postgresql.org/docs/9.5/ddl.html]
+	- [yolinux.com](http://www.yolinux.com/TUTORIALS/PostgreSQL-Transactions-ForeignKeys.html)
+	- [Documentacion oficial de PostgreSQL](https://www.postgresql.org/docs/9.5/ddl.html)
 
