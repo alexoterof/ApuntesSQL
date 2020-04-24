@@ -14,6 +14,6 @@ As sublinguaxes ou subdivisións de SQL son:
  # Instalacion MariaDB
  Instruccions [neste](https://gist.github.com/alexoterof/6c89485485752bc05673702f519488e6) Gist.
 
-# Exercicios
-  [**DDL**](exercicios/DDL1/README.MD) Ámbolos dous exercicios propostos (Proxectos de investigación e naves espacias)
-  [**Mariadb**](exercicios/mariadbInspection/README.MD) Comandos útiles para bucear no contido do noso server mariadb
+# Exercicios 3 - 4
+ - [**DDL**](exercicios/DDL/README.MD) Ámbolos dous exercicios propostos (Proxectos de investigación e naves espacias)
+ - [**Mariadb**](exercicios/mariadbInspection/README.MD) Comandos útiles para bucear no contido do noso server mariadb
