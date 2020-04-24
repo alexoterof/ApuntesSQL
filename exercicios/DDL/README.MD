@@ -6,6 +6,7 @@ Pra executalos, unha vez temos instalado e funcionando mariadb (Recordemos que o
 sudo mysql < rutaENomeDoArquivo.sql
 ````
 ![Execucion scripts](./img/scriptsuccess.png)
+
 Si todo vai ben e non temos erros no script, non nos dará ningunha saída de confirmación. En caso de haber algún problema cá sintaxe especificaranos a liña aproximada onde se atopa o erro. 
 No noso caso, por exemplo, tivemos que comentar algunhas partes e cambiar outras respectoo a solución atopada previamente en clase por diferencias entre a sintaxe e características de mysql e mariadb. Si necesitamos editar algún script podémolo facer fácilmente dende a liña de comandos executando 
 ````
